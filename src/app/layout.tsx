@@ -25,8 +25,17 @@ export default function RootLayout({
             <Flex justifyContent="center">
               <Stack align="center" spacing={{ base: 8, md: 10 }}>
                 <PageTitle />
-                <Text>
+                <Text
+                  display={{ base: "none", sm: "inline-block" }}
+                  justifyItems="center"
+                >
                   a place to document all the things you're grateful for.
+                </Text>
+                <Text
+                  display={{ base: "inline-block", sm: "none" }}
+                  justifyItems="center"
+                >
+                  a place to document gratitudes.
                 </Text>
 
                 <Divider />
