@@ -25,9 +25,10 @@ export default function RootLayout({
             <Flex justifyContent="center">
               <Stack align="center" spacing={{ base: 8, md: 10 }}>
                 <PageTitle />
-                <Text mx={4}>
+                <Text>
                   a place to document all the things you're grateful for.
                 </Text>
+
                 <Divider />
                 <Container size="2xl"> {children} </Container>
               </Stack>

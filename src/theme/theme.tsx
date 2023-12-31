@@ -5,7 +5,7 @@ import { mode } from "@chakra-ui/theme-tools";
 
 // Sets the original color mode value used by Chakra
 const config = {
-  useSystemColorMode: false,
+  useSystemColorMode: true,
 };
 
 const styles = {
