@@ -16,7 +16,7 @@ export default function Home() {
           get started
         </Heading>
       </Center>
-      <Stack direction="row" justifyContent="center">
+      <Stack pt={2} direction="row" justifyContent="center">
         <Button leftIcon={<FaGithub />}> github </Button>
         <Button leftIcon={<FaFacebook />}> facebook </Button>
       </Stack>
