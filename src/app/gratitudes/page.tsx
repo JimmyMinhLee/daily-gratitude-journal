@@ -1,27 +1,49 @@
-"use client";
+import { PrismaClient } from "@prisma/client";
+import { GratitudeSection } from "../../components/Gratitude/GratitudeSection";
+import * as _ from "lodash";
 
-import { GratitudeSection } from "@/components/Gratitude/GratitudeSection";
-import { Stack } from "@chakra-ui/react";
+const GenerateGratitudeSection = ({
+  date,
+  content,
+}: {
+  date: string;
+  content: string[];
+}) => {
+  return <GratitudeSection date={date} gratitudes={content}></GratitudeSection>;
+};
 
-export default function Gratitudes() {
-  const gratitudesOne = [
-    "today i'm happy for my dog",
-    "i really enjoyed the smell of the roses today",
-    "i'm happy that my mom said she loved me this morning",
-  ];
-  const gratitudesTwo = [
-    "i'm happy i woke up today",
-    "i'm happy that my presentation went okay",
-    `i'm grateful that i'm able to wake up and breathe and have food on my table. this is going to be,
-    an extremely long gratitude post because i'd like to see what happens and how this looks when i,
-    include a lot of things. hopefully it's not too bad and i don't have to edit the way that,
-    this is rendered.`,
-  ];
+async function Gratitudes() {
+  const prisma = new PrismaClient();
+  const data = await prisma.gratitude.findMany();
+  const gratitudeData = data.map((it) => {
+    return {
+      createdAt: it.createdAt.toLocaleDateString("en-us", {
+        weekday: "long",
+        year: "numeric",
+        month: "short",
+        day: "numeric",
+      }),
+      content: it.content,
+    };
+  });
 
-  return (
-    <Stack justifyContent="center">
-      <GratitudeSection date="january 2nd, 2023" gratitudes={gratitudesTwo} />
-      <GratitudeSection date="january 1st, 2023" gratitudes={gratitudesOne} />
-    </Stack>
-  );
+  const gratitudesByDate = _.groupBy(gratitudeData, "createdAt");
+  const gratitudes = {};
+  for (const date in gratitudesByDate) {
+    const content = gratitudesByDate[date].map((it) => {
+      return it.content;
+    });
+    gratitudes[date] = content;
+  }
+
+  const components = [];
+  for (const date in gratitudes) {
+    components.push(
+      GenerateGratitudeSection({ date: date, content: gratitudes[date] })
+    );
+  }
+
+  return <> {components} </>;
 }
+
+export default Gratitudes;
