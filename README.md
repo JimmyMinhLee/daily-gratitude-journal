@@ -1,5 +1,10 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
-## What?
+## what?
 
-Daily gratitudes journal.
+write your gratitudes down! 
+
+https://www.dailygratitude.xyz/
+
+### what did i use to build this? 
+
+Next.js as the web framework, Chakra UI for the components, Vercel for deployment & storage, Clerk.js for authentication.
