@@ -1,8 +1,9 @@
 "use client";
 
+import { Link } from "@chakra-ui/next-js";
 import { Button, Center, Heading, Stack } from "@chakra-ui/react";
+import { useRouter } from "next/router";
 import React from "react";
-import { FaFacebook, FaGithub } from "react-icons/fa";
 
 export default function Home() {
   return (
@@ -17,8 +18,12 @@ export default function Home() {
         </Heading>
       </Center>
       <Stack pt={2} direction="row" justifyContent="center">
-        <Button leftIcon={<FaGithub />}> github </Button>
-        <Button leftIcon={<FaFacebook />}> facebook </Button>
+        <Link href="/sign-in">
+          <Button>sign in</Button>
+        </Link>
+        <Link href="/sign-up">
+          <Button>sign up</Button>
+        </Link>
       </Stack>
     </Stack>
   );
