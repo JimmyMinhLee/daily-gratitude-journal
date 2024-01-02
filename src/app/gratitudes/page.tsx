@@ -12,6 +12,11 @@ const GenerateGratitudeSection = ({
   return <GratitudeSection date={date} gratitudes={content}></GratitudeSection>;
 };
 
+type Gratitude = {
+  createdAt: string;
+  content: string;
+};
+
 async function Gratitudes() {
   const prisma = new PrismaClient();
   const data = await prisma.gratitude.findMany();
@@ -24,11 +29,12 @@ async function Gratitudes() {
         day: "numeric",
       }),
       content: it.content,
-    };
+    } as Gratitude;
   });
 
   const gratitudesByDate = _.groupBy(gratitudeData, "createdAt");
-  const gratitudes = {};
+  const gratitudes: { [date: string]: string[] } = {};
+
   for (const date in gratitudesByDate) {
     const content = gratitudesByDate[date].map((it) => {
       return it.content;

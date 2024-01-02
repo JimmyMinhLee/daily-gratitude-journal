@@ -2,6 +2,7 @@
 
 import { Button, Stack, Textarea } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
+import { sql } from "@vercel/postgres";
 import React from "react";
 
 export default function SubmitGratitude() {
