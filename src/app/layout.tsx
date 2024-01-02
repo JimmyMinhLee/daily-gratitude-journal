@@ -2,8 +2,17 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Container, Divider, Flex, Stack, Text } from "@chakra-ui/react";
+import {
+  Center,
+  Container,
+  Divider,
+  Flex,
+  Stack,
+  Text,
+  calc,
+} from "@chakra-ui/react";
 import { PageTitle } from "@/components/PageTitle";
+import { NavigationMenu } from "@/components/NavigationMenu";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -23,7 +32,12 @@ export default function RootLayout({
         <Providers>
           <Container maxW="4xl">
             <Flex justifyContent="center">
-              <Stack align="center" spacing={{ base: 8, md: 10 }}>
+              <NavigationMenu />
+              <Stack
+                pt="calc(25vh)"
+                align="center"
+                spacing={{ base: 8, md: 10 }}
+              >
                 <PageTitle />
                 <Text
                   display={{ base: "none", sm: "inline-block" }}
@@ -38,7 +52,6 @@ export default function RootLayout({
                   a place to document gratitudes.
                 </Text>
 
-                <Divider />
                 <Container size="2xl"> {children} </Container>
               </Stack>
             </Flex>
