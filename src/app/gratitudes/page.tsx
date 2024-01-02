@@ -1,6 +1,7 @@
 import { PrismaClient } from "@prisma/client";
 import { GratitudeSection } from "../../components/Gratitude/GratitudeSection";
 import * as _ from "lodash";
+import { currentUser } from "@clerk/nextjs/server";
 
 const GenerateGratitudeSection = ({
   date,
@@ -19,7 +20,12 @@ type Gratitude = {
 
 async function Gratitudes() {
   const prisma = new PrismaClient();
-  const data = await prisma.gratitude.findMany();
+  const user = await currentUser();
+  const data = await prisma.gratitude.findMany({
+    where: {
+      authorId: user ? user.id : "",
+    },
+  });
   const gratitudeData = data.map((it) => {
     return {
       createdAt: it.createdAt.toLocaleDateString("en-us", {

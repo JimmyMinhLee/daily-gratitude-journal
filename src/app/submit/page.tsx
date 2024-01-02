@@ -1,6 +1,7 @@
 "use client";
 
 import { Button, Stack, Textarea } from "@chakra-ui/react";
+import { currentUser } from "@clerk/nextjs";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -9,11 +10,14 @@ export default function SubmitGratitude() {
   const [isLoading, setLoading] = React.useState(false);
   const router = useRouter();
 
-  const submitData = async (e: React.SyntheticEvent) => {
+  const submitData = () => {
     try {
       setLoading(true);
-      const body = { title: "hello", content: gratitude };
-      await fetch("/api/submit", {
+      const body = {
+        title: "hello",
+        content: gratitude,
+      };
+      fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),

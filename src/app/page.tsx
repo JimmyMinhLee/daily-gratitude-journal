@@ -2,7 +2,6 @@
 
 import { Link } from "@chakra-ui/next-js";
 import { Button, Center, Heading, Stack } from "@chakra-ui/react";
-import { useRouter } from "next/router";
 import React from "react";
 
 export default function Home() {
