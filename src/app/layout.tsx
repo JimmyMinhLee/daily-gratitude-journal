@@ -6,13 +6,12 @@ import { Container, Divider, Flex, Stack, Text } from "@chakra-ui/react";
 import { PageTitle } from "@/components/PageTitle";
 import { NavigationMenu } from "@/components/NavigationMenu";
 import { ClerkProvider } from "@clerk/nextjs";
-import { currentUser } from "@clerk/nextjs/server";
 import { Animate } from "@/components/Animate";
 
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "daily gratitude journal",
+  title: "daily gratitudes ",
   description: "by jimmyminhlee",
 };
 
