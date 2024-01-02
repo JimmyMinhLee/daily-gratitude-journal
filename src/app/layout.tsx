@@ -43,12 +43,6 @@ export default async function RootLayout({
                     >
                       a place to document gratitudes.
                     </Text>
-                    <Text
-                      display={{ base: "inline-block", sm: "none" }}
-                      justifyItems="center"
-                    >
-                      a place to document gratitudes.
-                    </Text>
                     <Divider />
                     <Container size="2xl">{children}</Container>
                   </Stack>
