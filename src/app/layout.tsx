@@ -2,11 +2,11 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
 import { Providers } from "./providers";
-import { Container, Divider, Flex, Stack, Text } from "@chakra-ui/react";
-import { PageTitle } from "@/components/PageTitle";
-import { NavigationMenu } from "@/components/NavigationMenu";
+import { Container, Flex, Stack } from "@chakra-ui/react";
 import { ClerkProvider } from "@clerk/nextjs";
-import { Animate } from "@/components/Animate";
+import { Animate } from "@/components/shared/Animate";
+import { NavigationBar } from "@/components/navigation/NavigationBar";
+import Header from "@/components/home/Header";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,23 +27,10 @@ export default async function RootLayout({
           <Providers>
             <Container maxW="4xl">
               <Flex justifyContent="center">
-                <NavigationMenu />
+                <NavigationBar />
                 <Animate delay={0.2}>
                   <Stack align="center" spacing={{ base: 8, md: 10 }}>
-                    <PageTitle />
-                    <Text
-                      display={{ base: "none", sm: "inline-block" }}
-                      justifyItems="center"
-                    >
-                      a place to document all the things you're grateful for.
-                    </Text>
-                    <Text
-                      display={{ base: "inline-block", sm: "none" }}
-                      justifyItems="center"
-                    >
-                      a place to document gratitudes.
-                    </Text>
-                    <Divider />
+                    <Header />
                     <Container size="2xl">{children}</Container>
                   </Stack>
                 </Animate>

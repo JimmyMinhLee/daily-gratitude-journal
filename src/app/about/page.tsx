@@ -1,6 +1,7 @@
 "use client";
-import { Animate } from "@/components/Animate";
-import Paragraph from "@/styled/Paragraph";
+
+import { Animate } from "@/components/shared/Animate";
+import Paragraph from "@/components/shared/styled/Paragraph";
 import { Stack, Heading } from "@chakra-ui/react";
 export default function About() {
   return (

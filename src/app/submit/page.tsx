@@ -1,6 +1,6 @@
 "use client";
 
-import { Animate } from "@/components/Animate";
+import { Animate } from "@/components/shared/Animate";
 import { Button, Stack, Textarea, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React from "react";

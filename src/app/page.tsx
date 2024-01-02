@@ -1,6 +1,6 @@
 "use client";
 
-import { Animate } from "@/components/Animate";
+import { Animate } from "@/components/shared/Animate";
 import { Link } from "@chakra-ui/next-js";
 import { Button, Center, Heading, Stack } from "@chakra-ui/react";
 import React from "react";
