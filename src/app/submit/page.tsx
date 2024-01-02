@@ -17,12 +17,12 @@ export default function SubmitGratitude() {
         title: "hello",
         content: gratitude,
       };
-      const data = fetch("/api/submit", {
+      fetch("/api/submit", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(body),
       });
-      return data;
+      router.push("/gratitudes");
     } catch (error) {
       console.error(`Error occured while pushing gratitude post: ${error}`);
     }
