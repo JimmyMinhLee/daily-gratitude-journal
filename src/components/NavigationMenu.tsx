@@ -42,14 +42,11 @@ export const NavigationMenu = () => {
                 aria-label="Options"
               />
               <MenuList>
-                <MenuItem as={Link} href="/">
-                  home
+                <MenuItem as={Link} href="/submit">
+                  write a gratitude
                 </MenuItem>
-                <MenuItem as={Link} href="/source">
-                  about
-                </MenuItem>
-                <MenuItem as={Link} href="/source">
-                  source
+                <MenuItem as={Link} href="/gratitudes">
+                  my gratitudes
                 </MenuItem>
               </MenuList>
             </Menu>
