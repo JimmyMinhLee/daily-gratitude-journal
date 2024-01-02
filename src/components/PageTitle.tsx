@@ -5,7 +5,7 @@ export const PageTitle = () => {
   return (
     <Link href="/">
       <Heading mt={20} variant="page-title">
-        daily gratitude journal
+        daily gratitudes
       </Heading>
     </Link>
   );
