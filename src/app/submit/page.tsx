@@ -1,7 +1,6 @@
 "use client";
 
-import { Button, Stack, Textarea } from "@chakra-ui/react";
-import { currentUser } from "@clerk/nextjs";
+import { Button, Stack, Textarea, useColorModeValue } from "@chakra-ui/react";
 import { useRouter } from "next/navigation";
 import React from "react";
 
@@ -33,15 +32,18 @@ export default function SubmitGratitude() {
       <Stack direction="column">
         <Textarea
           value={gratitude}
+          borderColor={useColorModeValue("black", "gray")}
           onChange={(e: any) => {
             setGratitude(e.target.value);
           }}
           placeholder="a nice warm coffee..."
         />
         {isLoading ? (
-          <Button isLoading />
+          <Button mt={4} isLoading />
         ) : (
-          <Button onClick={submitData}>submit</Button>
+          <Button mt={4} onClick={submitData}>
+            submit
+          </Button>
         )}
       </Stack>
     </>

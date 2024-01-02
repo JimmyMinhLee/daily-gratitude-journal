@@ -6,6 +6,8 @@ import { Container, Flex, Stack, Text } from "@chakra-ui/react";
 import { PageTitle } from "@/components/PageTitle";
 import { NavigationMenu } from "@/components/NavigationMenu";
 import { ClerkProvider } from "@clerk/nextjs";
+import { currentUser } from "@clerk/nextjs/server";
+import { redirect } from "next/navigation";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -14,11 +16,12 @@ export const metadata: Metadata = {
   description: "by jimmyminhlee",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: {
   children: React.ReactNode;
 }) {
+  const user = await currentUser();
   return (
     <ClerkProvider>
       <html lang="en">
@@ -41,7 +44,13 @@ export default function RootLayout({
                   >
                     a place to document gratitudes.
                   </Text>
-
+                  ) )
+                  <Text
+                    display={{ base: "inline-block", sm: "none" }}
+                    justifyItems="center"
+                  >
+                    a place to document gratitudes.
+                  </Text>
                   <Container size="2xl"> {children} </Container>
                 </Stack>
               </Flex>
