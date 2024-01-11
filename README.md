@@ -6,5 +6,5 @@ Check it out: https://www.dailygratitude.xyz/
 
 ### Technologies 
 
-`chakra-ui` for the front-end components, `next.js` for routing & rendering, `clerk.js` for user authentication, and `vercel` for deployment & database integrations. 
+`chakra-ui` for the front-end components, `next.js` for routing & rendering, `clerk.js` for user authentication, and `vercel` for deployment & database integrations. This was my first ever `next.js` application, and I learned a lot. 
 
